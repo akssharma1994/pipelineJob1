@@ -2,6 +2,7 @@ pipeline{
     agent any
     parameters {
         string (name: 'VERSION' , defaultValue : '' , description : '')
+        
         booleanParam (name: 'executeTest' , defaultValue : true , description : '' )
     }
     environment {
@@ -18,7 +19,7 @@ pipeline{
         stage("build"){
             steps{
                 echo "$BUILD_NUMBER"
-                echo "Building the version ${param.VERSION}"
+                echo "Building the version ${params.VERSION}"
                 echo "this is building $NEW_VERSION"
             }
         }
