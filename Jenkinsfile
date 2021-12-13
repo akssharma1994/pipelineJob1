@@ -3,7 +3,7 @@ pipeline{
     parameters {
         string (name: 'VERSION' , defaultValue : '' , description : '')
         
-        booleanParam (name: 'executeTest' , defaultValue : true , description : '' )
+        booleanParam (name: 'executeTest' , defaultValue : '' , description : '' )
     }
     environment {
         NEW_VERSION = '1.3.0'
@@ -26,7 +26,7 @@ pipeline{
         stage("test"){
             when{
                 expression {
-                    params.executeTest == true
+                    params.executeTest
                 }
             }
             steps{
