@@ -24,9 +24,12 @@ pipeline{
             }
         }
         stage("deploy"){
+            when
+            expression {
+                env.BRANCH_NAME = 'main'
+            }
             steps{
                 echo "this is deploy"
-                sh ('curl -u $SERVER_CRED_USR:$SERVER_CRED_PSW')
             }     
         }
     }
