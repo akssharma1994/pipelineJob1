@@ -1,3 +1,4 @@
+BRANCH_NAME = 'main'
 pipeline{
     agent any
     stages{
@@ -10,7 +11,7 @@ pipeline{
         stage("build"){
             when {
                 expression {
-                    BRANCH_NAME == 'main'
+                    $BRANCH_NAME == 'main'
                 }
             }
             steps{
