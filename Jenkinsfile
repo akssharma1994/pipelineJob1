@@ -20,7 +20,7 @@ pipeline{
             when {
 
                 expression {
-                    env.BRANCH_NAME == '*'
+                    env.BRANCH_NAME == main
                 }
             }
             steps{
