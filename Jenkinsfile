@@ -15,7 +15,7 @@ pipeline{
         }    
         stage("build"){
             when 
-                { environment name: 'BRANCH_NAME', value: 'main' }
+                { environment name: 'BRANCH_NAME', value: 'dev' }
             steps{
                 script {
                     gv.buildApp()
