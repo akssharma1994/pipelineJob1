@@ -2,7 +2,6 @@ pipeline{
     agent any
     environment {
         NEW_VERSION = '1.3.0'
-        BRANCH_NAME = 'main'
     }
     stages{
 
@@ -21,7 +20,7 @@ pipeline{
             when {
 
                 expression {
-                    $BRANCH_NAME == 'main'
+                    env.BRANCH_NAME == 'main'
                 }
             }
             steps{
