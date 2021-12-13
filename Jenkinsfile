@@ -27,6 +27,7 @@ pipeline{
            steps{
                 script {
                     gv.testApp()
+                    echo "$BRANCH_NAME"
                 }
             }
         }
