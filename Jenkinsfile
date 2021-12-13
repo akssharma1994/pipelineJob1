@@ -1,6 +1,12 @@
 pipeline{
     agent any
     stages{
+
+        stage("github code"){
+            steps {
+                git branch: 'main', url: 'https://github.com/akssharma1994/pipelineJob1.git'
+            }
+        }
         stage("build"){
             steps{
                 echo "this is build"
