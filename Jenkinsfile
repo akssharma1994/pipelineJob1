@@ -7,16 +7,16 @@ pipeline{
             steps{
                 echo "this is build"
             }
-            stage("test"){
+        }
+        stage("test"){
             steps{
                 echo "this is test"
             }
-            stage("deploy"){
+        }
+        stage("deploy"){
             steps{
                 echo "this is deploy"
             }     
         }
     }
-    }
-}
 }
