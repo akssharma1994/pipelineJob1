@@ -5,16 +5,18 @@ pipeline{
     stages{
         stage("build"){
             steps{
-                echo "This is a uild stage"
+                echo "this is build"
             }
-        stage("test")
+            stage("test"){
             steps{
-                echo "this is a test stage"
+                echo "this is test"
             }
-        stage("deploy")
+            stage("deploy"){
             steps{
-                echo "this is deploy stage"
-            }
-        }    
+                echo "this is deploy"
+            }     
+        }
     }
+    }
+}
 }
