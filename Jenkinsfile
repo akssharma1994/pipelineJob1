@@ -15,7 +15,9 @@ pipeline{
         }    
         stage("build"){
             when {
-                env.BRANCH_NAME = 'main'
+                experession {
+                    params.executeTests == true
+                }
             }
             steps{
                 script {
