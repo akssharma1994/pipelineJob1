@@ -8,6 +8,11 @@ pipeline{
             }
         }
         stage("build"){
+            when {
+                expression {
+                    BRANCH_NAME == 'main'
+                }
+            }
             steps{
                 echo "this is build"
             }
