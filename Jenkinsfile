@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    environment {
+        NEW_VERSION = '1.3.0'
+        BRANCH_NAME = 'main'
+    }
     stages{
 
         stage("github code"){
@@ -10,9 +14,16 @@ pipeline{
         stage("build"){
             steps{
                 echo "this is build stage"
+                echo "this is version $NEW_VERSION"
             }
         }
         stage("test"){
+            when {
+
+                expression {
+                    $BRANCH_NAME == 'main'
+                }
+            }
             steps{
                 echo "this is test"
             }
