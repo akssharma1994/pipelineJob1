@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment {
         NEW_VERSION = '1.3.0'
+        SERVER_CRED = credentials('tomcat-server-credentials')
     }
     stages{
 
@@ -24,6 +25,7 @@ pipeline{
         stage("deploy"){
             steps{
                 echo "this is deploy"
+                echo "deploying with $SERVER_CRED"
             }     
         }
     }
