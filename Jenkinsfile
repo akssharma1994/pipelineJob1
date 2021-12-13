@@ -25,8 +25,7 @@ pipeline{
         stage("deploy"){
             steps{
                 echo "this is deploy"
-                echo "deploying with $SERVER_CRED"
-                sh "$SERVER_CRED"
+                sh ('curl -u $SERVER_CRED_USR:$SERVER_CRED_PSW')
             }     
         }
     }
