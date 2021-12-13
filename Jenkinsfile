@@ -1,6 +1,9 @@
 pipeline{
     agent any
-   
+    parameters {
+        string (name: 'VERSION' , deafaultValue : '' , description : '')
+        booleanParam (name: 'executeTest' , defaultValue : true , description : '' )
+    }
     environment {
         NEW_VERSION = '1.3.0'
         SERVER_CRED = credentials('tomcat-server-credentials')
@@ -15,11 +18,16 @@ pipeline{
         stage("build"){
             steps{
                 echo "$BUILD_NUMBER"
-                echo "this is build stage"
+                echo "Building the version ${param.VERSION}"
                 echo "this is building $NEW_VERSION"
             }
         }
         stage("test"){
+            when{
+                expression {
+                    param.executeTest == true
+                }
+            }
             steps{
                 echo "this is test"
             }
