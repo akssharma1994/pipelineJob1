@@ -14,11 +14,7 @@ pipeline{
             }
         }    
         stage("build"){
-            when {
-                experession {
-                    params.executeTests == true
-                }
-            }
+            when { branch 'main'}
             steps{
                 script {
                     gv.buildApp()
