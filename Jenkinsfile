@@ -15,7 +15,6 @@ pipeline{
         stage("build"){
             steps{
                 echo "$BUILD_NUMBER"
-                echo "$BRANCH_NAME"
                 echo "this is build stage"
                 echo "this is building $NEW_VERSION"
             }
