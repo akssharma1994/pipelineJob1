@@ -1,5 +1,6 @@
 pipeline{
     agent any
+    echo "$BRANCH_NAME"
     environment {
         NEW_VERSION = '1.3.0'
         SERVER_CRED = credentials('tomcat-server-credentials')
