@@ -13,6 +13,7 @@ pipeline{
         }
         stage("build"){
             steps{
+                echo "$BUILD_NUMBER"
                 echo "this is build stage"
                 echo "this is building $NEW_VERSION"
             }
