@@ -1,7 +1,7 @@
 pipeline{
     agent any
     parameters {
-        string (name: 'VERSION' , deafaultValue : '' , description : '')
+        string (name: 'VERSION' , defaultValue : '' , description : '')
         booleanParam (name: 'executeTest' , defaultValue : true , description : '' )
     }
     environment {
