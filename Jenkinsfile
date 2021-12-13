@@ -10,12 +10,13 @@ pipeline{
         SERVER_CRED = credentials('tomcat-server-credentials')
     }
     stages{
-        stage("init")
+        stage("init"){
             steps{
                 script{
                     gv = load "script.groovy"
                 }
             }
+        }    
         stage("build"){
             steps{
                 script {
