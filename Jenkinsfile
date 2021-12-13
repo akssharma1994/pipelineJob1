@@ -24,10 +24,11 @@ pipeline{
             }
         }
         stage("deploy"){
-            when
+            when {
             expression {
                 env.BRANCH_NAME = 'main'
             }
+        }
             steps{
                 echo "this is deploy"
             }     
