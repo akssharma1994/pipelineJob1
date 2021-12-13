@@ -13,15 +13,10 @@ pipeline{
         stage("build"){
             steps{
                 echo "this is build stage"
-                echo "this is version $NEW_VERSION"
+                echo "this is building $NEW_VERSION"
             }
         }
         stage("test"){
-            when {
-                expression {
-                    env.BRANCH_NAME == "main"
-                }
-            }
             steps{
                 echo "this is test"
             }
