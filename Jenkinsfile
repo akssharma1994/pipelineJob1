@@ -1,8 +1,8 @@
+def gv
 pipeline{
     agent any
     parameters {
-        string (name: 'VERSION' , defaultValue : '' , description : '')
-        
+        choice (name: 'VERSION' choices: ['1.0.0', '1.0.2', '1.0.3'], description: '')
         booleanParam (name: 'executeTests' , defaultValue : false , description : '' )
     }
     environment {
@@ -10,19 +10,20 @@ pipeline{
         SERVER_CRED = credentials('tomcat-server-credentials')
     }
     stages{
-
-        stage("github code"){
-            steps {
-                git branch: 'main', url: 'https://github.com/akssharma1994/pipelineJob1.git'
+        stage("init")
+            steps{
+                script{
+                    gv = load "script.groovy"
+                }
             }
-        }
         stage("build"){
             steps{
-                echo "$BUILD_NUMBER"
-                echo "Building the version ${params.VERSION}"
-                echo "this is building $NEW_VERSION"
+                script {
+                    gv.builapp()
+                }
             }
         }
+            
         stage("test"){
             when{
                 expression {
@@ -30,12 +31,16 @@ pipeline{
                 }
             }
             steps{
-                echo "this is test"
+                script{
+                    gv.testApp()
+                }
             }
         }
         stage("deploy"){
             steps{
-                echo "this is deploy"
+                script{
+                    gv.deployApp()
+                }
             }     
         }
     }
