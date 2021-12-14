@@ -14,8 +14,6 @@ pipeline{
             }
         }    
         stage("build"){
-            when 
-                { environment name: 'BRANCH_NAME', value: 'dev' }
             steps{
                 script {
                     gv.buildApp()
@@ -27,7 +25,6 @@ pipeline{
            steps{
                 script {
                     gv.testApp()
-                    echo "$BRANCH_NAME"
                 }
             }
         }
